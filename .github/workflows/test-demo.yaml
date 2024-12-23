@@ -1,4 +1,4 @@
-name: Test Demo App
+name: Run First Action
 
 on:
   push:
