@@ -12,4 +12,25 @@ jobs:
   demo-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, World!"
+      - run: echo "Action started!"
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo "Hello world..."
+
+      - name: Run a multiline script
+        run: |
+          echo "This is a multiline script"
+          echo "It is running on the runner in the cloud"
+
+      - name: List of repo's files
+        run: ls ${{ github.workspace }}
+
+      - name: Print GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: Action completed
+        run: echo "Action completed!"
